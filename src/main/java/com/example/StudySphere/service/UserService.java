@@ -39,7 +39,9 @@ public class UserService {
         if (result.isPresent()) {
             updateduser = result.get();
             updateduser.setUsername(user.getUsername());
-            if(user.getPassword()!=null){
+            System.out.println("new password is :"+user.getPassword());
+            System.out.println("length of new password is"+user.getPassword().length());
+            if(!user.getPassword().isEmpty()){
                 String passwd = "{noop}"+user.getPassword();
                 updateduser.setPassword(passwd);
             }
