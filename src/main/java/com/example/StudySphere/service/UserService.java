@@ -54,4 +54,10 @@ public class UserService {
 
     }
 
+    public void save(User user){
+        String passwd = "{noop}"+user.getPassword();
+        user.setPassword(passwd);
+        user.setActive(1);
+        userDao.save(user);}
+
 }

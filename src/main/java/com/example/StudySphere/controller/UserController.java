@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Objects;
+
 @Controller
 public class UserController {
 
@@ -34,8 +36,9 @@ public class UserController {
         System.out.println(username);
         User user  = userService.findById(username);
         model.addAttribute("user",user);
-
-
+        if(Objects.equals(user.getRole(), "ROLE_ADMIN")){
+            return "redirect:/admin/?uid="+user.getUid();
+        }
         return "dashboard";
     }
 
@@ -60,7 +63,12 @@ public class UserController {
 
         userService.updateProfile(user);
 
-        return "redirect:/profile?uid="+user.getUid();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        System.out.println(username);
+        User logged  = userService.findById(username);
+
+        return "redirect:/profile?uid="+logged.getUid();
 
     }
 

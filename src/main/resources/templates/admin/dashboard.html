@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/dashcss.css}">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <a th:href="@{/}">
+            <img th:src="@{/images/logo-removebg-noslogan.png}" alt="Company Logo">
+        </a>
+    </div>
+    <ul>
+        <li><a th:href="@{/admin/manageAccounts(uid=${user.uid})}">Account Management</a></li>
+        <li><a href="#">Fees Management</a></li>
+        <li><a th:href="@{/profile(uid=${user.uid})}">
+            <span th:text="${user.username}"></span>'s Profile</a></li>
+        <li>
+
+            <form action="#" th:action="@{/logout}" method="POST">
+                <input type="submit" value="Logout">
+
+            </form>
+        </li>
+
+    </ul>
+</nav>
+<!--  <div class="container">-->
+
+
+<!--  </div>-->
+</body>
+</html>
