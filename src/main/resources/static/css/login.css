@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #5a84ae;
+    font-family: 'Helvetica', sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center; /* Keeps the content centered horizontally */
+    align-items: center; /* Keeps the content centered vertically */
+    height: 100vh;
+  }
+  
+  .logo {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .logo img {
+    max-width: 300px;
+  }
+  
+  .login-box {
+    background-color: #c5e4ee;
+    padding: 40px 60px 40px 40px; /* Added padding on the right */
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 480px; /* Set a fixed width */
+    margin: 0 40px 40px 0; /* This centers the login box horizontally */
+    /* box-shadow: inset 0 0 5px rgb(120, 152, 200); */
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666666;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+  }
+
+  .login-button {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    padding: 15px 20px; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s; /* Smooth transition */
+    box-shadow: inset 0 0 10px rgb(255, 255, 255);
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+    
+  }
+    

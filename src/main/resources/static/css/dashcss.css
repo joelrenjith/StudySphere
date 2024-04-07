@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #c5e4ee;
+}
+
+.navbar {
+  background-color: #5a84ae;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo img {
+  max-width: 100px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 540;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar ul li:last-child {
+  margin-right: 0;
+}
+
+.navbar ul li a:hover {
+  background-color: #3e6790;
+  border-radius: 20px;
+}
+
+/* Style for logout button */
+.navbar ul li form {
+  display: inline-block; /* Display the form inline with other navigation items */
+  margin-right: 20px; /* Adjust spacing to match other items */
+}
+
+.navbar ul li form input[type="submit"] {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size:medium;
+  font-weight: 540;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border: none;
+  background-color: transparent; /* Transparent background */
+  cursor: pointer;
+}
+
+/* Hover effect for logout button */
+.navbar ul li form:hover {
+  background-color: rgb(104, 73, 73);
+  border-radius: 20px;
+}

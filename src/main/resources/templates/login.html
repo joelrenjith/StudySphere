@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-color: #5a84ae;
+      font-family: 'Helvetica', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .logo {
+      flex: 1;
+      text-align: center;
+    }
+
+    .logo img {
+      max-width: 300px;
+    }
+
+    .login-box {
+      background-color: #c5e4ee;
+      padding: 40px 60px 40px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      width: 480px;
+      margin: 0 40px 40px 0;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #666666;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #cccccc;
+      border-radius: 10px;
+    }
+
+    .login-button {
+      font-family: 'Helvetica', sans-serif;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      box-shadow: inset 0 0 10px rgb(255, 255, 255);
+    }
+
+    .login-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">
+    <img src="https://github.com/DiyaMariaAbraham/StudySphere/blob/main/StudySphere/src/main/resources/static/images/logo-removebg-preview.png?raw=true" alt="Company Logo">
+  </div>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form action="#" th:action="@{/authenticateTheUser}" method="POST">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="login-button">Login</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
