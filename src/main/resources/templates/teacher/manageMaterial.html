@@ -105,8 +105,8 @@
     </div>
     <ul>
         <li>
-            <a th:href="@{/profile(uid=${user.uid})}">
-                <span th:text="${user.username}"></span>'s Profile
+            <a th:href="@{/profile(uid=${teacher.uid})}">
+                <span th:text="${teacher.username}"></span>'s Profile
             </a>
         </li>
         <li>
@@ -119,27 +119,29 @@
 <div class="container">
     <ul>
         <li>
-            <div class="mini-container">
-                <h1>Edit Account</h1>
-            <form th:action="@{/admin/editAccount}" method="GET">
-                <label for="uid">Enter User ID:</label>
-                <input type="text" id="uid" name="uid" required>
-                <button type="submit" class="mini-container button">Select</button>
-            </form>
+            <div th:if="${anchorSubjects != null}" class="mini-container">
+                <h1>Edit Material</h1>
+                <form th:action="@{/teacher/anchorMaterial}" method="GET">
+                    <select name="subjectId"> <!-- Add name attribute -->
+                        <option th:each="subject : ${anchorSubjects}"
+                                th:value="${subject.id}"
+                                th:text="${subject.name}"></option>
+                    </select>
+                    <button type="submit" class="mini-container button">Select</button>
+                </form>
             </div>
         </li>
 
         <li>
-            <div class="mini-container">
-                <h1>Create Account</h1>
-                <form th:action="@{/admin/createAccounts}" method="POST">
-                    <label for="accountType">Account Type:</label>
-                    <select id="accountType" name="accountType">
-                        <option value="Student">Student</option>
-                        <option value="Teacher">Teacher</option>
-                        <option value="Admin">Admin</option>
+            <div th:if="${allSubjects != null}" class="mini-container">
+                <h1>View Material</h1>
+                <form th:action="@{/teacher/viewMaterial}" method="GET">
+                    <select name="subjectId">
+                        <option th:each="subject : ${allSubjects}"
+                                th:value="${subject.id}"
+                                th:text="${subject.name}"></option>
                     </select>
-                    <button type="submit" class="mini-container button">Create</button>
+                    <button type="submit" class="mini-container button">Select</button>
                 </form>
             </div>
         </li>

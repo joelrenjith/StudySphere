@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
+    <title>Create SUbject</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/dashcss.css}">
     <style>
@@ -136,25 +136,22 @@
     <ul>
 
     </ul>
-    <form action="#" th:action="@{/admin/createProfile}" th:object="${user}" method="POST">
-        <label for="uid">UID</label>
-        <input type="text" id="uid" name="uid" th:field="*{uid}">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" th:field="*{username}">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" th:field="*{password}">
-        <select id="role" name="difficultyLevel" th:field="*{role}" th:required="required">
-            <option value="ROLE_STUDENT">Student</option>
-            <option value="ROLE_TEACHER">Teacher</option>
-            <option value="ROLE_ADMIN">Admin</option>
-        </select>
-        <br>
-        <br>
+    <form action="#" th:action="@{/admin/saveSubject}" th:object="${subject}" method="POST">
+        <label for="id">ID</label>
+        <input type="text" id="id" name="id"  th:field="*{id}">
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="Name" th:field="*{name}">
+        <label for="credits">Credits</label>
+        <input type="number" id="credits" name="credits" th:field="*{credits}">
+        <label for="sem">Semester</label>
+        <input type="number" id="sem" name="sem" th:field="*{sem}">
+        <label for="anchorId">Anchor ID</label>
+        <input type="text" id="anchorId" name="anchorId" th:field="*{anchorId}">
         <!-- Add more editable fields here -->
         <!-- Example: -->
         <!-- <label for="email">Email:</label>
         <input type="text" id="email" name="email" th:value="${user.email}"> -->
-        <button type="submit">Create New Account</button>
+        <button type="submit">Create Subject</button>
     </form>
 </div>
 </body>

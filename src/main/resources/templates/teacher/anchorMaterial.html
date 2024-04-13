@@ -105,8 +105,8 @@
     </div>
     <ul>
         <li>
-            <a th:href="@{/profile(uid=${user.uid})}">
-                <span th:text="${user.username}"></span>'s Profile
+            <a th:href="@{/profile(uid=${teacher.uid})}">
+                <span th:text="${teacher.username}"></span>'s Profile
             </a>
         </li>
         <li>
@@ -117,32 +117,42 @@
     </ul>
 </nav>
 <div class="container">
+    <h1 th:text="${subject.name}"></h1>
     <ul>
-        <li>
-            <div class="mini-container">
-                <h1>Edit Account</h1>
-            <form th:action="@{/admin/editAccount}" method="GET">
-                <label for="uid">Enter User ID:</label>
-                <input type="text" id="uid" name="uid" required>
-                <button type="submit" class="mini-container button">Select</button>
-            </form>
-            </div>
-        </li>
+
 
         <li>
-            <div class="mini-container">
-                <h1>Create Account</h1>
-                <form th:action="@{/admin/createAccounts}" method="POST">
-                    <label for="accountType">Account Type:</label>
-                    <select id="accountType" name="accountType">
-                        <option value="Student">Student</option>
-                        <option value="Teacher">Teacher</option>
-                        <option value="Admin">Admin</option>
-                    </select>
-                    <button type="submit" class="mini-container button">Create</button>
+            <div  class="mini-container">
+                <h1>Add Material</h1>
+                <form th:action="@{/teacher/addMaterial}" th:object="${material}" enctype="multipart/form-data" method="POST">
+                    <input type="hidden" name="subject_id" th:value="${subject.id}">
+                    <label for="Chapter Number">Chapter Number</label>
+                    <input type="number" id="Chapter Number" name="Chapter Number" th:field="${material.chapter}">
+                    <br>
+                    <label for="pdfFile">Upload a PDF file:</label><br>
+                    <input type="file" id="pdfFile" name="pdfFile" accept=".pdf"><br><br>
+                    <!-- Add more editable fields here -->
+                    <!-- Example: -->
+                    <!-- <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" th:value="${user.email}"> -->
+                    <button type="submit">Add Material</button>
                 </form>
             </div>
         </li>
+<!--        <li>-->
+<!--            <div th:if="${not #lists.isEmpty(materials)}" class="mini-container">-->
+<!--                <h1>Show Chapter</h1>-->
+<!--                <form th:action="@{/teacher/displayMaterial}" method="GET">-->
+<!--                    <select>-->
+
+<!--                        <option th:each="material : ${materials}"-->
+<!--                                th:value="${material.id}"-->
+<!--                                th:text="${material.chapter}"></option>-->
+<!--                    </select>-->
+<!--                    <button type="submit" class="mini-container button">Show</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </li>-->
         <!-- Add more profile attributes here -->
         <!-- Example: -->
         <!-- <li>

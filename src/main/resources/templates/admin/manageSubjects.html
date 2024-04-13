@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Manage Subjects</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/dashcss.css}">
     <style>
@@ -120,28 +120,17 @@
     <ul>
         <li>
             <div class="mini-container">
-                <h1>Edit Account</h1>
-            <form th:action="@{/admin/editAccount}" method="GET">
-                <label for="uid">Enter User ID:</label>
-                <input type="text" id="uid" name="uid" required>
-                <button type="submit" class="mini-container button">Select</button>
-            </form>
+                <h1>Edit Subject</h1>
+                <form th:action="@{/admin/editSubject}" method="GET">
+                    <label for="id">Enter Subject ID:</label>
+                    <input type="text" id="id" name="id" required>
+                    <button type="submit" class="mini-container button">Select</button>
+                </form>
             </div>
         </li>
 
         <li>
-            <div class="mini-container">
-                <h1>Create Account</h1>
-                <form th:action="@{/admin/createAccounts}" method="POST">
-                    <label for="accountType">Account Type:</label>
-                    <select id="accountType" name="accountType">
-                        <option value="Student">Student</option>
-                        <option value="Teacher">Teacher</option>
-                        <option value="Admin">Admin</option>
-                    </select>
-                    <button type="submit" class="mini-container button">Create</button>
-                </form>
-            </div>
+            <a th:href="@{/admin/createSubject}"><button class="mini-container button">Create Subject</button></a>
         </li>
         <!-- Add more profile attributes here -->
         <!-- Example: -->

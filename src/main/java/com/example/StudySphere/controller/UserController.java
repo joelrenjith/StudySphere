@@ -39,6 +39,9 @@ public class UserController {
         if(Objects.equals(user.getRole(), "ROLE_ADMIN")){
             return "redirect:/admin/?uid="+user.getUid();
         }
+        else if(Objects.equals(user.getRole(), "ROLE_TEACHER")){
+            return "redirect:/teacher/?uid="+user.getUid();
+        }
         return "dashboard";
     }
 
