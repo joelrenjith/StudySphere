@@ -100,6 +100,7 @@
 <div class="container">
     <div class="main-content">
         <h1 th:text="${subject.name}"></h1>
+        <h2>Chapter <span th:text="${chapter}"></span></h2>
 
 
                 <div th:if="${not #lists.isEmpty(materials)}" class="mini-container">

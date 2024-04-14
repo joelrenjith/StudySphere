@@ -94,7 +94,7 @@ public class TeacherController {
             redirectAttributes.addFlashAttribute("error", "Failed to upload file: " + e.getMessage());
         }
 
-        return "redirect:/teacher/anchorMaterial?subject_id="+subject_id;
+        return "redirect:/teacher/anchorMaterial?subjectId="+subject_id;
     }
 
     @GetMapping("/viewMaterial")
