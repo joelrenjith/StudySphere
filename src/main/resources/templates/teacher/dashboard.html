@@ -15,9 +15,9 @@
         </a>
     </div>
     <ul>
-        <li><a th:href="@{/teacher/manageMaterial(uid=${teacher.uid})}">Material</a></li>
+        <li><a th:href="@{/material/manageTeacherMaterial(uid=${teacher.uid})}">Material</a></li>
         <li><a href="#">Quiz</a></li>
-        <li><a href="#">Assignments</a></li>
+        <li><a th:href="@{/assignment/manageAssignment}">Assignments</a></li>
         <li><a th:href="@{/profile(uid=${teacher.uid})}">
             <span th:text="${teacher.username}"></span>'s Profile</a></li>
         <li>

@@ -7,22 +7,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/dashcss.css}">
     <style>
-        /* Additional CSS for better attribute display */
+        /* General body styles */
         body {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-color: #c5e4ee;
             margin: 0;
             padding: 0;
         }
+
+        /* Navbar styles */
         .navbar {
             background-color: #5a84ae;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-        }
-        .logo img {
-            max-width: 100px;
         }
         .navbar ul {
             list-style-type: none;
@@ -38,50 +37,32 @@
             color: white;
             text-decoration: none;
         }
-        .container {
 
+        /* Main container styles */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin: 40px;
         }
-        .container ul {
-            padding: 0;
+        .main-content {
+            flex-basis: 20vw;
+            /*flex: 1;*/
         }
-        .container li {
-            margin-bottom: 30px; /* Increased margin between rows */
-            display: flex;
-            align-items: center;
+        .iframe-container {
+            flex-basis: 80vw;
+            width: 100%;
+            margin-left: 20px;
+            /*height: 75vh;*/
         }
-        .container li label {
-            width: 120px; /* Fixed width for labels */
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 22px;
-        }
-        .container li span {
-            flex-grow: 1; /* Allow span to take remaining width */
-            padding-bottom: 3px; /* Spacing below each value */
-            display: block; /* Display as block to ensure full width */
-            font-size: 22px;
-        }
-        .container button {
-            padding: 10px 20px;
-            background-color: #5a84ae;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            font-size: 22px;
-        }
-        .container button:hover {
-            background-color: #3e6790;
-        }
-        .mini-container{
+
+        /* Mini container styles */
+        .mini-container {
             background-color: #fff;
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 0px;
-
+            margin-bottom: 30px;
         }
         .mini-container button {
             padding: 10px 20px;
@@ -94,6 +75,7 @@
         .mini-container button:hover {
             background-color: #3e6790;
         }
+
     </style>
 </head>
 <body>
@@ -116,43 +98,41 @@
         </li>
     </ul>
 </nav>
-<div class="container">
-    <ul>
-        <li>
-            <div th:if="${anchorSubjects != null}" class="mini-container">
-                <h1>Edit Material</h1>
-                <form th:action="@{/material/anchorMaterial}" method="GET">
-                    <select name="subjectId"> <!-- Add name attribute -->
-                        <option th:each="subject : ${anchorSubjects}"
-                                th:value="${subject.id}"
-                                th:text="${subject.name}"></option>
-                    </select>
-                    <button type="submit" class="mini-container button">Select</button>
-                </form>
-            </div>
-        </li>
 
-        <li>
-            <div th:if="${allSubjects != null}" class="mini-container">
-                <h1>View Material</h1>
-                <form th:action="@{/material/viewMaterial}" method="GET">
-                    <select name="subjectId">
-                        <option th:each="subject : ${allSubjects}"
-                                th:value="${subject.id}"
-                                th:text="${subject.name}"></option>
-                    </select>
-                    <button type="submit" class="mini-container button">Select</button>
-                </form>
-            </div>
-        </li>
+<div class="container">
+    <div class="main-content">
+        <h1 th:text="${subject.name}"></h1>
+        <h2>Chapter <span th:text="${assignment.title}"></span></h2>
+
+
+        <div th:if="${not #lists.isEmpty(assignmentList)}" class="mini-container">
+            <h1>Show Assignment</h1>
+            <form th:action="@{/assignment/viewAssignment/displayAssignment}" method="GET">
+                <input type="hidden" name="subject_id" th:value="${subject.id}">
+                <input type="hidden" name="assignments" th:value="${assignmentList}">
+
+                <select name="assignment_id">
+
+                    <option th:each="assignment : ${assignmentList}"
+                            th:value="${assignment.getId()}"
+                            th:text="${assignment.getTitle()}"></option>
+                </select>
+                <button type="submit" class="mini-container button">Show</button>
+            </form>
+        </div>
+
         <!-- Add more profile attributes here -->
         <!-- Example: -->
         <!-- <li>
             <label>Email:</label>
             <span th:text="${user.email}"></span>
         </li> -->
-    </ul>
 
+    </div>
+    <div class="iframe-container">
+        <iframe th:src="${path}" width="640" height="600" allow="autoplay"></iframe>
+    </div>
 </div>
+
 </body>
 </html>

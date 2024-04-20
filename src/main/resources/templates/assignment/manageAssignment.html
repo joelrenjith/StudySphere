@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Manage Assignments</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/dashcss.css}">
     <style>
@@ -119,11 +119,11 @@
 <div class="container">
     <ul>
         <li>
-            <div th:if="${anchorSubjects != null}" class="mini-container">
-                <h1>Edit Material</h1>
-                <form th:action="@{/material/anchorMaterial}" method="GET">
-                    <select name="subjectId"> <!-- Add name attribute -->
-                        <option th:each="subject : ${anchorSubjects}"
+            <div th:if="${assignment_subjects != null}" class="mini-container">
+                <h1>View Assignments</h1>
+                <form th:action="@{/assignment/viewAssignments}" method="GET">
+                    <select name="subject_id">
+                        <option th:each="subject : ${assignment_subjects}"
                                 th:value="${subject.id}"
                                 th:text="${subject.name}"></option>
                     </select>
@@ -133,14 +133,11 @@
         </li>
 
         <li>
-            <div th:if="${allSubjects != null}" class="mini-container">
-                <h1>View Material</h1>
-                <form th:action="@{/material/viewMaterial}" method="GET">
-                    <select name="subjectId">
-                        <option th:each="subject : ${allSubjects}"
-                                th:value="${subject.id}"
-                                th:text="${subject.name}"></option>
-                    </select>
+            <div class="mini-container">
+                <h1>Create Assignment</h1>
+                <form th:action="@{/assignment/createAssignment}" method="GET">
+                    <label for="subject_id">Enter Subject ID:</label>
+                    <input type="text" id="subject_id" name="subject_id" required>
                     <button type="submit" class="mini-container button">Select</button>
                 </form>
             </div>

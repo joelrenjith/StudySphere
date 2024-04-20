@@ -46,13 +46,14 @@
             margin: 40px;
         }
         .main-content {
-            flex: 1;
+            flex-basis: 20vw;
+            /*flex: 1;*/
         }
         .iframe-container {
-            flex-shrink: 0;
-            width: 50%;
+            flex-basis: 80vw;
+            width: 100%;
             margin-left: 20px;
-            height: 100vh;
+            /*height: 75vh;*/
         }
 
         /* Mini container styles */
@@ -74,6 +75,7 @@
         .mini-container button:hover {
             background-color: #3e6790;
         }
+        
     </style>
 </head>
 <body>
@@ -85,8 +87,8 @@
     </div>
     <ul>
         <li>
-            <a th:href="@{/profile(uid=${teacher.uid})}">
-                <span th:text="${teacher.username}"></span>'s Profile
+            <a th:href="@{/profile(uid=${user.uid})}">
+                <span th:text="${user.username}"></span>'s Profile
             </a>
         </li>
         <li>
@@ -105,7 +107,7 @@
 
                 <div th:if="${not #lists.isEmpty(materials)}" class="mini-container">
                     <h1>Show Chapter</h1>
-                    <form th:action="@{/teacher/viewMaterial/displayChapter}" method="GET">
+                    <form th:action="@{/material/viewMaterial/displayChapter}" method="GET">
                         <input type="hidden" name="subject_id" th:value="${subject.id}">
                         <select name="material_id">
                             <option th:each="material : ${materials}"
@@ -125,7 +127,7 @@
 
     </div>
     <div class="iframe-container">
-        <iframe th:src="${path}" width="640" height="600" allow="autoplay"></iframe>
+        <iframe th:src="${path}" width="1200" height="600" allow="autoplay"></iframe>
     </div>
 </div>
 

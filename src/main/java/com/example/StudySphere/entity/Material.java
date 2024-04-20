@@ -51,10 +51,10 @@ public class Material {
     public Material() {
     }
 
-    public Material(int chapter, String fileId, Subject subject) {
+    public Material(int chapter, String fileId) {
         this.chapter = chapter;
         this.fileId = fileId;
-        this.subject = subject;
+
     }
 
     @Override

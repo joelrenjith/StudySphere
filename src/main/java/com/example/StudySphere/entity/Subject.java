@@ -30,6 +30,14 @@ public class Subject {
     @OneToMany(mappedBy = "subject",cascade = CascadeType.REMOVE)
     private List<Attendance> attendances;
 
+    @OneToMany(mappedBy = "subject",cascade = CascadeType.REMOVE)
+    private List<Assignment> assignments;
+
+    @OneToMany(mappedBy = "subject",cascade = CascadeType.REMOVE)
+    private List<Quiz> quizzes;
+
+
+
 
     public void addMaterial(Material material){
         if(materials==null){
@@ -37,6 +45,24 @@ public class Subject {
         }
         materials.add(material);
         material.setSubject(this);
+    }
+
+
+
+    public void addAssignment(Assignment assignment){
+        if(assignments==null){
+            assignments=new ArrayList<>();
+        }
+        assignments.add(assignment);
+        assignment.setSubject(this);
+    }
+
+    public void addQuiz(Quiz quiz){
+        if(quizzes==null){
+            quizzes=new ArrayList<>();
+        }
+        quizzes.add(quiz);
+        quiz.setSubject(this);
     }
 
     public String  getId() {
@@ -84,6 +110,25 @@ public class Subject {
     }
 
 
+    public void setMaterials(List<Material> materials) {
+        this.materials = materials;
+    }
+
+    public List<Assignment> getAssignments() {
+        return assignments;
+    }
+
+    public void setAssignments(List<Assignment> assignments) {
+        this.assignments = assignments;
+    }
+
+    public List<Quiz> getQuizzes() {
+        return quizzes;
+    }
+
+    public void setQuizzes(List<Quiz> quizzes) {
+        this.quizzes = quizzes;
+    }
 
     public List<Attendance> getAttendances() {
         return attendances;

@@ -1,7 +1,6 @@
 package com.example.StudySphere.service;
 
 import com.example.StudySphere.dao.MaterialDao;
-import com.example.StudySphere.entity.Material;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.FileContent;
@@ -35,11 +34,11 @@ public class FileUpload {
         return filePath.toString();
     }
 
-    public Material uploadImageToDrive(File file,int chapter) throws GeneralSecurityException, IOException {
-        Material res = new Material();
-        res.setChapter(chapter);
+    public String uploadToDrive(File file) throws GeneralSecurityException, IOException {
 
-        try{
+
+        String urlID = null;
+        try {
             String folderId = "175fftz4TKn8aB8iDILCV_qaDw9IvpCKR";
             Drive drive = createDriveService();
             com.google.api.services.drive.model.File fileMetaData = new com.google.api.services.drive.model.File();
@@ -48,17 +47,16 @@ public class FileUpload {
             FileContent mediaContent = new FileContent("application/pdf", file);
             com.google.api.services.drive.model.File uploadedFile = drive.files().create(fileMetaData, mediaContent)
                     .setFields("id").execute();
-            String pdfUrl = "https://drive.google.com/uc?export=view&id="+uploadedFile.getId();
-            String urlID = uploadedFile.getId();
-            System.out.println("id="+uploadedFile.getId());
+            String pdfUrl = "https://drive.google.com/uc?export=view&id=" + uploadedFile.getId();
+            urlID = uploadedFile.getId();
+            System.out.println("id=" + uploadedFile.getId());
             System.out.println("Pdf URL: " + pdfUrl);
             file.delete();
-            res.setFileId(urlID);
-            materialDao.save(res);
-        }catch (Exception e){
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return  res;
+        return urlID;
 
     }
 

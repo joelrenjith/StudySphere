@@ -21,6 +21,9 @@ public class AdminController {
     @Autowired
     private SubjectService subjectService;
 
+
+    private FindAuth findAuth=new FindAuth();
+
     public AdminController(UserService userService) {
         this.userService = userService;
     }
@@ -42,8 +45,7 @@ public class AdminController {
 
     @GetMapping("/editAccount")
     public String editAccount(@RequestParam("uid") String uid, Model model){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         System.out.println(username);
         User admin  = userService.findById(username);
         model.addAttribute("admin",admin);
@@ -54,8 +56,7 @@ public class AdminController {
 
     @PostMapping("/createAccounts")
     public String createAccounts(@RequestParam("accountType") String type, Model model){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         User admin  = userService.findById(username);
         model.addAttribute("admin",admin);
 
@@ -81,8 +82,7 @@ public class AdminController {
 
         userService.save(user);
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         System.out.println(username);
         User logged  = userService.findById(username);
 
@@ -96,8 +96,7 @@ public class AdminController {
 
         userService.save(student);
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         System.out.println(username);
         User logged  = userService.findById(username);
 
@@ -105,14 +104,13 @@ public class AdminController {
 
     }
     @PostMapping("/createTeacherProfile")
-    public String create(@ModelAttribute Teacher teacher) {
+    public String createTeacher(@ModelAttribute Teacher teacher) {
         System.out.println("SAVING"+ teacher.getUsername());
 
 
         userService.save(teacher);
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         System.out.println(username);
         User logged  = userService.findById(username);
 
@@ -129,8 +127,7 @@ public class AdminController {
 
     @GetMapping("/editSubject")
     public String editSubject(@RequestParam("id") String id, Model model){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         System.out.println(username);
         User admin  = userService.findById(username);
         model.addAttribute("admin",admin);
@@ -148,8 +145,7 @@ public class AdminController {
 
         subjectService.updateSubject(subject);
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         System.out.println(username);
         User logged  = userService.findById(username);
 
@@ -158,8 +154,7 @@ public class AdminController {
 
     @GetMapping("/createSubject")
     public String createSubject( Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         User admin = userService.findById(username);
         model.addAttribute("admin", admin);
 
@@ -176,8 +171,7 @@ public class AdminController {
 
         subjectService.save(subject);
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         System.out.println(username);
         User logged  = userService.findById(username);
 

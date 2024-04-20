@@ -2,12 +2,12 @@ package com.example.StudySphere.service;
 
 import com.example.StudySphere.dao.TeacherDao;
 import com.example.StudySphere.dao.UserDao;
-import com.example.StudySphere.entity.Subject;
-import com.example.StudySphere.entity.Teacher;
-import com.example.StudySphere.entity.User;
+import com.example.StudySphere.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +43,17 @@ public class TeacherService {
 
         teacherDao.save(teacher);
 
+    }
+
+    public void addAssignmnet(String teacher_id, Assignment assignment) throws GeneralSecurityException, IOException {
+        Teacher teacher = findById(teacher_id);
+        teacher.addAssignment(assignment);
+        teacherDao.save(teacher);
+    }
+    public void addQuiz(String teacher_id, Quiz quiz) throws GeneralSecurityException, IOException {
+        Teacher teacher = findById(teacher_id);
+        teacher.addQuiz(quiz);
+        teacherDao.save(teacher);
     }
 
 

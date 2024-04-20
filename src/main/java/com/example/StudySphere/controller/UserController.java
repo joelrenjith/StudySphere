@@ -20,6 +20,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
+    FindAuth findAuth=new FindAuth();
+
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -31,8 +34,7 @@ public class UserController {
     }
     @GetMapping("/")
     public String dashboard(Model model){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         System.out.println(username);
         User user  = userService.findById(username);
         model.addAttribute("user",user);
@@ -41,6 +43,9 @@ public class UserController {
         }
         else if(Objects.equals(user.getRole(), "ROLE_TEACHER")){
             return "redirect:/teacher/?uid="+user.getUid();
+        }
+        else if(Objects.equals(user.getRole(), "ROLE_STUDENT")){
+            return "redirect:/student/?uid="+user.getUid();
         }
         return "dashboard";
     }
@@ -66,8 +71,7 @@ public class UserController {
 
         userService.updateProfile(user);
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        String username = findAuth.findUser();
         System.out.println(username);
         User logged  = userService.findById(username);
 

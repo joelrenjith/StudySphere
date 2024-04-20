@@ -124,7 +124,7 @@
         <li>
             <div  class="mini-container">
                 <h1>Add Material</h1>
-                <form th:action="@{/teacher/addMaterial}" th:object="${material}" enctype="multipart/form-data" method="POST">
+                <form th:action="@{/material/addMaterial}" th:object="${material}" enctype="multipart/form-data" method="POST">
                     <input type="hidden" name="subject_id" th:value="${subject.id}">
                     <label for="Chapter Number">Chapter Number</label>
                     <input type="number" id="Chapter Number" name="Chapter Number" th:field="${material.chapter}">

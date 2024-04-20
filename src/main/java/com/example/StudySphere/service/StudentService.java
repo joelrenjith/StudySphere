@@ -9,6 +9,8 @@ import com.example.StudySphere.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class StudentService {
 
@@ -25,5 +27,20 @@ public class StudentService {
 
         studentDao.save(student);
 
+    }
+
+    public Student findById(String id){
+        Optional<Student> result =studentDao.findById(id);
+
+        Student student = null;
+
+        if (result.isPresent()) {
+            student = result.get();
+        }
+        else {
+            throw new RuntimeException("Did not find user uid - " + id);
+        }
+
+        return student;
     }
 }

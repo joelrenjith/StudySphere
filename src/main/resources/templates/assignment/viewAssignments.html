@@ -99,7 +99,7 @@
 <body>
 <nav class="navbar">
     <div class="logo">
-        <a th:href="@{/}">
+        <a th:href="@{/static}">
             <img th:src="@{/images/logo-removebg-noslogan.png}" alt="Company Logo">
         </a>
     </div>
@@ -117,34 +117,28 @@
     </ul>
 </nav>
 <div class="container">
+    <h1 th:text="${subject.name}"></h1>
     <ul>
         <li>
-            <div th:if="${anchorSubjects != null}" class="mini-container">
-                <h1>Edit Material</h1>
-                <form th:action="@{/material/anchorMaterial}" method="GET">
-                    <select name="subjectId"> <!-- Add name attribute -->
-                        <option th:each="subject : ${anchorSubjects}"
-                                th:value="${subject.id}"
-                                th:text="${subject.name}"></option>
+            <div th:if="${not #lists.isEmpty(assignments)}" class="mini-container">
+                <h1>Show Assignment</h1>
+                <form th:action="@{/assignment/viewAssignment/displayAssignment}" method="GET">
+                    <input type="hidden" name="subject_id" th:value="${subject.id}">
+                    <input type="hidden" name="assignments" th:value="${assignments}">
+
+                    <select name="assignment_id">
+
+                        <option th:each="assignment : ${assignments}"
+                                th:value="${assignment.id}"
+                                th:text="${assignment.title}"></option>
                     </select>
-                    <button type="submit" class="mini-container button">Select</button>
+                    <button type="submit" class="mini-container button">Show</button>
                 </form>
             </div>
         </li>
 
-        <li>
-            <div th:if="${allSubjects != null}" class="mini-container">
-                <h1>View Material</h1>
-                <form th:action="@{/material/viewMaterial}" method="GET">
-                    <select name="subjectId">
-                        <option th:each="subject : ${allSubjects}"
-                                th:value="${subject.id}"
-                                th:text="${subject.name}"></option>
-                    </select>
-                    <button type="submit" class="mini-container button">Select</button>
-                </form>
-            </div>
-        </li>
+
+
         <!-- Add more profile attributes here -->
         <!-- Example: -->
         <!-- <li>
