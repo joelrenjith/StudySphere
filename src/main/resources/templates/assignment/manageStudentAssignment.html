@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Manage Assignments</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/dashcss.css}">
     <style>
@@ -99,14 +99,14 @@
 <body>
 <nav class="navbar">
     <div class="logo">
-        <a th:href="@{/static}">
+        <a th:href="@{/}">
             <img th:src="@{/images/logo-removebg-noslogan.png}" alt="Company Logo">
         </a>
     </div>
     <ul>
         <li>
-            <a th:href="@{/profile(uid=${user.uid})}">
-                <span th:text="${user.username}"></span>'s Profile
+            <a th:href="@{/profile(uid=${student.uid})}">
+                <span th:text="${student.username}"></span>'s Profile
             </a>
         </li>
         <li>
@@ -117,44 +117,31 @@
     </ul>
 </nav>
 <div class="container">
-    <h1 th:text="${subject.name}"></h1>
     <ul>
         <li>
-            <div th:if="${not #lists.isEmpty(assignments)}" class="mini-container">
-                <h1>Show Assignment</h1>
-                <div th:if="${user.getRole()=='ROLE_TEACHER'}">
-                <form th:action="@{/assignment/viewAssignment/displayAssignment}" method="GET">
-                    <input type="hidden" name="subject_id" th:value="${subject.id}">
-                    <input type="hidden" name="assignments" th:value="${assignments}">
-
-                    <select name="assignment_id">
-
-                        <option th:each="assignment : ${assignments}"
-                                th:value="${assignment.id}"
-                                th:text="${assignment.title}"></option>
+            <div th:if="${assignment_subjects != null}" class="mini-container">
+                <h1>View Assignments</h1>
+                <form th:action="@{/assignment/viewStudentAssignments}" method="GET">
+                    <select name="subject_id">
+                        <option th:each="subject : ${assignment_subjects}"
+                                th:value="${subject.id}"
+                                th:text="${subject.name}"></option>
                     </select>
-                    <button type="submit" class="mini-container button">Show</button>
+                    <button type="submit" class="mini-container button">Select</button>
                 </form>
-                </div>
-                <div th:unless="${user.getRole()=='ROLE_TEACHER'}">
-                    <form th:action="@{/assignment/viewAssignment/displayStudentAssignment}" method="GET">
-                        <input type="hidden" name="subject_id" th:value="${subject.id}">
-                        <input type="hidden" name="assignments" th:value="${assignments}">
-
-                        <select name="assignment_id">
-
-                            <option th:each="assignment : ${assignments}"
-                                    th:value="${assignment.id}"
-                                    th:text="${assignment.title}"></option>
-                        </select>
-                        <button type="submit" class="mini-container button">Show</button>
-                    </form>
-                </div>
             </div>
         </li>
 
-
-
+<!--        <li>-->
+<!--            <div class="mini-container">-->
+<!--                <h1>Create Assignment</h1>-->
+<!--                <form th:action="@{/assignment/createAssignment}" method="GET">-->
+<!--                    <label for="subject_id">Enter Subject ID:</label>-->
+<!--                    <input type="text" id="subject_id" name="subject_id" required>-->
+<!--                    <button type="submit" class="mini-container button">Select</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </li>-->
         <!-- Add more profile attributes here -->
         <!-- Example: -->
         <!-- <li>

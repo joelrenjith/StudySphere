@@ -3,6 +3,8 @@ package com.example.StudySphere.service;
 import com.example.StudySphere.dao.AssignmentDao;
 import com.example.StudySphere.entity.Assignment;
 import com.example.StudySphere.entity.Material;
+import com.example.StudySphere.entity.Student;
+import com.example.StudySphere.entity.Submission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,8 @@ public class AssignmentService {
 
     @Autowired
     FileUpload fileUpload;
+
+    public List<Assignment> getAllAssignments() {return assignmentDao.findAll();}
 
     public List<Assignment> getAllAssignmentsByTeacherId(String teacherId) {
             return assignmentDao.findByTeacherUid(teacherId);
@@ -46,5 +50,11 @@ public class AssignmentService {
         }
 
         return assignment;
+    }
+
+    public void addSubmission(int assignment_id, Submission submission) throws GeneralSecurityException, IOException {
+        Assignment assignment = findById(assignment_id);
+        assignment.addSubmission(submission);
+        assignmentDao.save(assignment);
     }
 }

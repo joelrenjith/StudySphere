@@ -2,6 +2,7 @@ package com.example.StudySphere.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,25 @@ public class Student extends User{
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.REMOVE)
     private List<Attendance> attendances;
+
+    @OneToMany(mappedBy = "student",cascade = CascadeType.REMOVE)
+    private List<Submission> submissions;
+
+    public void addSubmission(Submission submission){
+        if(submissions==null){
+            submissions=new ArrayList<>();
+        }
+        submissions.add(submission);
+        submission.setStudent(this);
+    }
+
+    public List<Submission> getSubmissions() {
+        return submissions;
+    }
+
+    public void setSubmissions(List<Submission> submissions) {
+        this.submissions = submissions;
+    }
 
     public char getSection() {
         return section;

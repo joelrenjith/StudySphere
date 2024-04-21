@@ -10,14 +10,14 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a th:href="@{/static}">
+            <a th:href="@{/}">
           <img th:src="@{/images/logo-removebg-noslogan.png}" alt="Company Logo">
             </a>
         </div>
         <ul>
             <li><a th:href="@{/material/manageStudentMaterial(uid=${student.uid})}">Material</a></li>
             <li><a href="#">Quiz</a></li>
-            <li><a href="#">Assignments</a></li>
+            <li><a th:href="@{/assignment/manageStudentAssignment}">Assignments</a></li>
             <li><a th:href="@{/profile(uid=${student.uid})}">
                 <span th:text="${student.username}"></span>'s Profile</a></li>
             <li>

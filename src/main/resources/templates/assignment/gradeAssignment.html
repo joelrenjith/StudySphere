@@ -113,50 +113,35 @@
 
 <div class="container">
     <div class="main-content">
-        <h1 th:text="${subject.name}"></h1>
-        <h2>Name: <br><span th:text="${assignment.title}"></span></h2>
-        <h3>Deadline: <br><span th:text="${assignment.getDeadline()}"></span></h3>
-
-
-        <div th:if="${not #lists.isEmpty(assignmentList)}" class="mini-container">
-            <h1>Show Assignment</h1>
-            <form th:action="@{/assignment/viewAssignment/displayAssignment}" method="GET">
-                <input type="hidden" name="subject_id" th:value="${subject.id}">
-                <input type="hidden" name="assignments" th:value="${assignmentList}">
-
-                <select name="assignment_id">
-
-                    <option th:each="assignment : ${assignmentList}"
-                            th:value="${assignment.getId()}"
-                            th:text="${assignment.getTitle()}"></option>
-                </select>
-                <button type="submit" class="mini-container button">Show</button>
-            </form>
-        </div>
-
-        <!-- Add more profile attributes here -->
-        <!-- Example: -->
-        <!-- <li>
-            <label>Email:</label>
-            <span th:text="${user.email}"></span>
-        </li> -->
-
+        <h1 th:text="${submission.getAssignment().getSubject().getName()}"></h1>
+        <h2>Name: <br><span th:text="${submission.getAssignment().getTitle()}"></span></h2>
+        <br>
+        <h3>Student: <br><span th:text="${submission.getStudent().getUid()}"></span></h3>
+        <h4>Name: <br><span th:text="${submission.getStudent().getUsername()}"></span></h4>
     </div>
+
     <div class="iframe-container">
         <iframe th:src="${path}" width="640" height="600" allow="autoplay"></iframe>
     </div>
-    <div  class="mini-container" th:if="${not #lists.isEmpty(submissions)}">
-        <h1>View Submissions</h1>
-        <ul>
-            <ul>
-                <li th:each="submission :${submissions}">
-                    <a th:href="@{/assignment/gradeAssignment(submission_id=${submission.getId()})}">
-                    <span th:text="${submission.getStudent().getUid()}"></span></a>
-                </li>
-            </ul>
-        </ul>
+
+    <div class="mini-container">
+        <h1>Enter Grade</h1>
+        <form action="#" th:action="@{/assignment/submitGrade}" method="POST">
+            <input type="hidden" id="submission_id" name="submission_id" th:value="${submission.id}">
+            <select id="grade" name="grade">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+            </select>
+            <button type="submit">Submit Grade</button>
+        </form>
     </div>
 </div>
+
+
+
 
 </body>
 </html>
