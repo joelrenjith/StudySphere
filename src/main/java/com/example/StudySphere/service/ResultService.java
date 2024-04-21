@@ -8,14 +8,28 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class ResultService {
+public class ResultService extends AbstractService {
 
     @Autowired
     ResultDao resultDao;
 
-    public void save(Result result){resultDao.save(result);}
-    public void delete(Result result){resultDao.delete(result);}
-    public void deleteResultById(int resultId) {
-        resultDao.deleteById(resultId);
+
+
+    @Override
+    public void save(Object object) {
+        if (object instanceof Result result) {
+            resultDao.save(result);
+        } else {
+            throw new IllegalArgumentException("Object must be an instance of Result");
+        }
+    }
+
+    @Override
+    public void delete(Object object) {
+        if (object instanceof Result result) {
+            resultDao.delete(result);
+        } else {
+            throw new IllegalArgumentException("Object must be an instance of Result");
+        }
     }
 }

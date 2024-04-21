@@ -12,7 +12,7 @@ import java.security.GeneralSecurityException;
 import java.util.Optional;
 
 @Service
-public class StudentService {
+public class StudentService extends AbstractService {
 
     @Autowired
     private StudentDao studentDao;
@@ -23,11 +23,22 @@ public class StudentService {
 
     }
 
-    public void save(Student student){
-
-        studentDao.save(student);
-
+    @Override
+    public void save(Object object) {
+        if (object instanceof Student student) {
+            studentDao.save(student);
+        } else {
+            throw new IllegalArgumentException("Object must be an instance of Student");
+        }
     }
+
+    @Override
+    public void delete(Object object) {
+        if (object instanceof Student student) {
+            studentDao.delete(student);
+        } else {
+            throw new IllegalArgumentException("Object must be an instance of Student");
+        }    }
 
     public Student findById(String id){
         Optional<Student> result =studentDao.findById(id);

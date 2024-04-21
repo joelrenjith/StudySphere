@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class SubjectService {
+public class SubjectService extends AbstractService {
 
     @Autowired
     private SubjectDao subjectDao;
@@ -39,9 +39,25 @@ public class SubjectService {
         return subjectDao.findAll();
     }
 
-    public void save(Subject subject) {
-        subjectDao.save(subject);
+    @Override
+    public void save(Object object) {
+        if (object instanceof Subject subject) {
+            subjectDao.save(subject);
+        } else {
+            throw new IllegalArgumentException("Object must be an instance of Result");
+        }
     }
+
+    @Override
+    public void delete(Object object) {
+        if (object instanceof Subject subject) {
+            subjectDao.delete(subject);
+        } else {
+            throw new IllegalArgumentException("Object must be an instance of Result");
+        }
+    }
+
+
     public Subject findById(String id){
         Optional<Subject> result =subjectDao.findById(id);
 

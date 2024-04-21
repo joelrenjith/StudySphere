@@ -1,18 +1,16 @@
 package com.example.StudySphere.service;
 
 import com.example.StudySphere.dao.TeacherDao;
-import com.example.StudySphere.dao.UserDao;
 import com.example.StudySphere.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TeacherService {
+public class TeacherService extends AbstractService {
 
     @Autowired
     private TeacherDao teacherDao;
@@ -39,11 +37,24 @@ public class TeacherService {
         return teacher;
     }
 
-    public void save(Teacher teacher){
-
-        teacherDao.save(teacher);
-
+    @Override
+    public void save(Object object) {
+        if (object instanceof Teacher teacher) {
+            teacherDao.save(teacher);
+        } else {
+            throw new IllegalArgumentException("Object must be an instance of Teacher");
+        }
     }
+
+    @Override
+    public void delete(Object object) {
+        if (object instanceof Teacher teacher) {
+            teacherDao.delete(teacher);
+        } else {
+            throw new IllegalArgumentException("Object must be an instance of Teacher");
+        }
+    }
+
 
     public void addAssignmnet(String teacher_id, Assignment assignment) throws GeneralSecurityException, IOException {
         Teacher teacher = findById(teacher_id);

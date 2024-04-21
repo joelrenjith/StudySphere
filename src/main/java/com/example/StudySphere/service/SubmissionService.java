@@ -4,6 +4,7 @@ import com.example.StudySphere.dao.AssignmentDao;
 import com.example.StudySphere.dao.SubmissionDao;
 import com.example.StudySphere.entity.Assignment;
 import com.example.StudySphere.entity.Material;
+import com.example.StudySphere.entity.Subject;
 import com.example.StudySphere.entity.Submission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ import java.util.Optional;
 @Service
 @Transactional
 
-public class SubmissionService {
+public class SubmissionService extends AbstractService {
 
     @Autowired
     SubmissionDao submissionDao;
@@ -28,10 +29,27 @@ public class SubmissionService {
     FileUpload fileUpload;
 
 
-    public void delete(Submission submission) {submissionDao.delete(submission);}
-    public void save(Submission submission) {submissionDao.save(submission);}
+    @Override
+    public void save(Object object) {
+        if (object instanceof Submission submission) {
+            submissionDao.save(submission);
+        } else {
+            throw new IllegalArgumentException("Object must be an instance of Result");
+        }
+    }
 
-    public List<Submission> findByAssignment(int assignment_id) {return submissionDao.findByAssignmentId(assignment_id);}
+    @Override
+    public void delete(Object object) {
+        if (object instanceof Submission submission) {
+            submissionDao.delete(submission);
+        } else {
+            throw new IllegalArgumentException("Object must be an instance of Result");
+        }
+    }
+
+    public List<Submission> findByAssignment(int assignment_id) {
+        return submissionDao.findByAssignmentId(assignment_id);
+    }
 
 //    public List<Assignment> getAllAssignmentsByTeacherId(String teacherId) {
 //        return assignmentDao.findByTeacherUid(teacherId);

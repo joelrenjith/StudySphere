@@ -4,6 +4,8 @@ import com.example.StudySphere.entity.Student;
 import com.example.StudySphere.entity.Subject;
 import com.example.StudySphere.entity.Teacher;
 import com.example.StudySphere.entity.User;
+import com.example.StudySphere.factory.UserFactory;
+import com.example.StudySphere.factory.UserFactoryManager;
 import com.example.StudySphere.service.SubjectService;
 import com.example.StudySphere.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 
 @Controller
 @RequestMapping("/admin")
@@ -60,28 +63,16 @@ public class AdminController {
         User admin  = userService.findById(username);
         model.addAttribute("admin",admin);
 
-        User newuser = new User();
-        switch (type){
-            case "Student":{newuser=new Student();
-                            newuser.setRole("ROLE_STUDENT");
-                            break;}
-            case "Teacher":{newuser=new Teacher();
-                            newuser.setRole("ROLE_TEACHER");
-                            break;}
-            case "Admin":{newuser.setRole("ROLE_ADMIN");break;}
-
-        }
-        model.addAttribute("user",newuser);
+        UserFactoryManager factoryManager = new UserFactoryManager();
+        User newUser = factoryManager.createUser(type);
+        model.addAttribute("user",newUser);
         return "admin/create"+type+"Account";
     }
 
     @PostMapping("/createProfile")
     public String create(@ModelAttribute User user) {
         System.out.println("SAVING"+ user.getUsername());
-
-
         userService.save(user);
-
         String username = findAuth.findUser();
         System.out.println(username);
         User logged  = userService.findById(username);
