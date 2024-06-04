@@ -19,8 +19,8 @@ public class SubjectService extends AbstractService {
     @Autowired
     private SubjectDao subjectDao;
 
-    @Autowired
-    FileUpload fileUpload;
+//    @Autowired
+//    FileUpload fileUpload;
 
     @Autowired
     MaterialService materialService;

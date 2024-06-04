@@ -87,7 +87,6 @@ public class UserService {
                 }
                 break;
             case "ROLE_ADMIN":
-                // Handle admin-specific logic if needed
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported user role: " + user.getRole());

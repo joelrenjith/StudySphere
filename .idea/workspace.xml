@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f99de828-9e7f-4fa3-ab71-769c8de7be49" name="Changes" comment="" />
+    <list default="true" id="f99de828-9e7f-4fa3-ab71-769c8de7be49" name="Changes" comment="some minor tweaks">
+      <change afterPath="$PROJECT_DIR$/.idea/StudySphere.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StudySphere/controller/AssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StudySphere/controller/AssignmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StudySphere/service/FileUpload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StudySphere/service/FileUpload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StudySphere/service/SubjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StudySphere/service/SubjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/StudySphere/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/StudySphere/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/createSubject.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/createSubject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/assignment/displayAssignment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/assignment/displayAssignment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +32,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
+        <option value="Enum" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -25,13 +42,32 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;joelrenjith&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/joelrenjith/StudySphere.git&quot;,
+    &quot;accountId&quot;: &quot;1d213358-3043-47a1-90bf-adf39b7d1d90&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -39,28 +75,43 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2eiaDH6z1PPIMBxRIftvLZOzeMH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/joelr/Documents/sem-6/OOADJ/project/StudySphere",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.StudySphereApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/joelr/Documents/sem-6/OOADJ/project/StudySphere&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joelr\Documents\sem-6\OOADJ\project\StudySphere\src\main\resources\templates\student" />
+      <recent name="C:\Users\joelr\Documents\sem-6\OOADJ\project\StudySphere\src\main\resources\templates\material" />
       <recent name="C:\Users\joelr\Documents\sem-6\OOADJ\project\StudySphere\src\main\resources\templates" />
       <recent name="C:\Users\joelr\Documents\sem-6\OOADJ\project\StudySphere\src\main\resources\static\css" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.StudySphereApplication">
     <configuration name="StudySphereApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.StudySphere.StudySphereApplication" />
       <module name="demo" />
@@ -74,11 +125,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StudySphereApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.StudySphere.StudySphereApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.StudySphereApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,18 +155,178 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712389733573</updated>
+      <workItem from="1713025429986" duration="2880000" />
+      <workItem from="1713029104163" duration="4562000" />
+      <workItem from="1713115243887" duration="540000" />
+      <workItem from="1713159445504" duration="164000" />
+      <workItem from="1713161283533" duration="251000" />
+      <workItem from="1713198396669" duration="5117000" />
+      <workItem from="1713215490110" duration="1697000" />
+      <workItem from="1713241384787" duration="1799000" />
+      <workItem from="1713250533490" duration="3761000" />
+      <workItem from="1713300012229" duration="1752000" />
+      <workItem from="1713340751075" duration="1304000" />
+      <workItem from="1713349016956" duration="1152000" />
+      <workItem from="1713552876904" duration="3589000" />
+      <workItem from="1713609992225" duration="11500000" />
+      <workItem from="1713625442361" duration="1323000" />
+      <workItem from="1713634507380" duration="10485000" />
+      <workItem from="1713645732357" duration="669000" />
+      <workItem from="1713681256318" duration="6334000" />
+      <workItem from="1713694894591" duration="2029000" />
+      <workItem from="1713709625385" duration="904000" />
+      <workItem from="1713715320664" duration="2814000" />
+      <workItem from="1713758279455" duration="4186000" />
+      <workItem from="1713766416927" duration="193000" />
+      <workItem from="1713777278972" duration="2286000" />
+      <workItem from="1713808075851" duration="2723000" />
+      <workItem from="1713846492004" duration="3707000" />
+      <workItem from="1713856786722" duration="286000" />
+      <workItem from="1713909565888" duration="388000" />
+      <workItem from="1713910039942" duration="3000" />
+      <workItem from="1714449254163" duration="1524000" />
+      <workItem from="1715789757078" duration="68000" />
+      <workItem from="1717476631216" duration="284000" />
     </task>
+    <task id="LOCAL-00001" summary="first">
+      <option name="closed" value="true" />
+      <created>1712472072268</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712472072268</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first">
+      <option name="closed" value="true" />
+      <created>1712472343505</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712472343505</updated>
+    </task>
+    <task id="LOCAL-00003" summary="took out show in Student">
+      <option name="closed" value="true" />
+      <created>1712474520800</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712474520800</updated>
+    </task>
+    <task id="LOCAL-00004" summary="took out show in Student">
+      <option name="closed" value="true" />
+      <created>1712474648740</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712474648740</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixed password empty problem in updateprofile in UserService">
+      <option name="closed" value="true" />
+      <created>1712477247428</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712477247428</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added create account and edit accounts functionality">
+      <option name="closed" value="true" />
+      <created>1712485521616</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712485521616</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added entities, and added subject and material management for teachers">
+      <option name="closed" value="true" />
+      <created>1713032313894</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713032313894</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added chapter number to viewChapter.html">
+      <option name="closed" value="true" />
+      <created>1713115360803</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713115360804</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added Assignments">
+      <option name="closed" value="true" />
+      <created>1713613847670</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713613847671</updated>
+    </task>
+    <task id="LOCAL-00010" summary="finished Assignments">
+      <option name="closed" value="true" />
+      <created>1713681390832</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713681390832</updated>
+    </task>
+    <task id="LOCAL-00011" summary="some minor tweaks">
+      <option name="closed" value="true" />
+      <created>1713709891371</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713709891371</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="first" />
+    <MESSAGE value="took out show in Student" />
+    <MESSAGE value="fixed password empty problem in updateprofile in UserService" />
+    <MESSAGE value="added create account and edit accounts functionality" />
+    <MESSAGE value="added entities, and added subject and material management for teachers" />
+    <MESSAGE value="added chapter number to viewChapter.html" />
+    <MESSAGE value="added Assignments" />
+    <MESSAGE value="finished Assignments" />
+    <MESSAGE value="some minor tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="some minor tweaks" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/StudySphere/service/ResultService.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

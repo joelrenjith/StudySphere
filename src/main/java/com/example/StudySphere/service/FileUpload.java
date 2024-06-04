@@ -9,6 +9,7 @@ import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -25,6 +26,9 @@ public class FileUpload {
     @Autowired
     private MaterialDao materialDao;
 
+    @Value("folderId")
+    String folderId;
+
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     private static final String SERVICE_ACOUNT_KEY_PATH = getPathToGoodleCredentials();
 
@@ -39,7 +43,7 @@ public class FileUpload {
 
         String urlID = null;
         try {
-            String folderId = "175fftz4TKn8aB8iDILCV_qaDw9IvpCKR";
+
             Drive drive = createDriveService();
             com.google.api.services.drive.model.File fileMetaData = new com.google.api.services.drive.model.File();
             fileMetaData.setName(file.getName());

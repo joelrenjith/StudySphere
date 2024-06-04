@@ -88,6 +88,38 @@
             color: #007bff; /* Change color on hover (optional) */
         }
 
+        .mini-container-submissions {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            width: 500px;
+        }
+        .mini-container-submissions button {
+            padding: 10px 20px;
+            background-color: #5a84ae;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .mini-container-submissions button:hover {
+            background-color: #3e6790;
+        }
+        .mini-container-submissions ul {
+            list-style-type: none; /* Remove bullet points */
+            padding-left: 5px; /* Remove left padding of the list */
+        }
+        .mini-container-submissions a {
+            color: inherit; /* Use inherited text color */
+            text-decoration: none; /* Remove underline */
+            cursor: pointer; /* Show pointer cursor on hover (optional) */
+        }
+        .mini-container-submissions a:hover {
+            color: #007bff; /* Change color on hover (optional) */
+        }
+
     </style>
 </head>
 <body>
@@ -113,7 +145,9 @@
 
 <div class="container">
     <div class="main-content">
+        
         <h1 th:text="${subject.name}"></h1>
+
         <h2>Name: <br><span th:text="${assignment.title}"></span></h2>
         <h3>Deadline: <br><span th:text="${assignment.getDeadline()}"></span></h3>
 
@@ -143,9 +177,9 @@
 
     </div>
     <div class="iframe-container">
-        <iframe th:src="${path}" width="640" height="600" allow="autoplay"></iframe>
+        <iframe th:src="${path}" width="680" height="600" allow="autoplay"></iframe>
     </div>
-    <div  class="mini-container" th:if="${not #lists.isEmpty(submissions)}">
+    <div  class="mini-container-submissions" th:if="${not #lists.isEmpty(submissions)}">
         <h1>View Submissions</h1>
         <ul>
             <ul>

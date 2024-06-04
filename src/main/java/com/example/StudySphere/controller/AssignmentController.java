@@ -210,7 +210,7 @@ public class AssignmentController {
             redirectAttributes.addFlashAttribute("error", "Failed to upload file: " + e.getMessage());
         }
 
-        return "redirect:/assignment/manageStudentAssignment";
+        return "redirect:/assignment/viewAssignment/displayStudentAssignment?assignment_id="+assignment_id;
     }
 
     @GetMapping("/gradeAssignment")
