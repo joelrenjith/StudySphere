@@ -1,8 +1,8 @@
 # Default ignored files
 /shelf/
 /.idea/workspace.xml
-../cred.json
-../src/main/resources/application.properties
+/cred.json
+/src/main/resources/application.properties
 /compiler.xml
 /dataSources.local.xml
 /dataSources.xml
