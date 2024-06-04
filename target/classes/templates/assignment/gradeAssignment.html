@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/dashcss.css}">
+    <style>
+        /* General body styles */
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #c5e4ee;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #5a84ae;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .navbar ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Main container styles */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 40px;
+        }
+        .main-content {
+            flex-basis: 20vw;
+            /*flex: 1;*/
+        }
+        .iframe-container {
+            flex-basis: 80vw;
+            width: 100%;
+            margin-left: 40px;
+            /*height: 75vh;*/
+        }
+
+        /* Mini container styles */
+        .mini-container {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .mini-container button {
+            padding: 10px 20px;
+            background-color: #5a84ae;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .mini-container button:hover {
+            background-color: #3e6790;
+        }
+        .mini-container ul {
+            list-style-type: none; /* Remove bullet points */
+            padding-left: 5px; /* Remove left padding of the list */
+        }
+        .mini-container a {
+            color: inherit; /* Use inherited text color */
+            text-decoration: none; /* Remove underline */
+            cursor: pointer; /* Show pointer cursor on hover (optional) */
+        }
+        .mini-container a:hover {
+            color: #007bff; /* Change color on hover (optional) */
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <a th:href="@{/}">
+            <img th:src="@{/images/logo-removebg-noslogan.png}" alt="Company Logo">
+        </a>
+    </div>
+    <ul>
+        <li>
+            <a th:href="@{/profile(uid=${teacher.uid})}">
+                <span th:text="${teacher.username}"></span>'s Profile
+            </a>
+        </li>
+        <li>
+            <form action="#" th:action="@{/logout}" method="POST">
+                <input type="submit" value="Logout">
+            </form>
+        </li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="main-content">
+        <h1 th:text="${submission.getAssignment().getSubject().getName()}"></h1>
+        <h2>Name: <br><span th:text="${submission.getAssignment().getTitle()}"></span></h2>
+        <br>
+        <h3>Student: <br><span th:text="${submission.getStudent().getUid()}"></span></h3>
+        <h4>Name: <br><span th:text="${submission.getStudent().getUsername()}"></span></h4>
+    </div>
+
+    <div class="iframe-container">
+        <iframe th:src="${path}" width="640" height="600" allow="autoplay"></iframe>
+    </div>
+
+    <div class="mini-container">
+        <h1>Enter Grade</h1>
+        <form action="#" th:action="@{/assignment/submitGrade}" method="POST">
+            <input type="hidden" id="submission_id" name="submission_id" th:value="${submission.id}">
+            <select id="grade" name="grade">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+            </select>
+            <button type="submit">Submit Grade</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/dashcss.css}">
+    <style>
+        /* Additional CSS for better attribute display */
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #c5e4ee;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #5a84ae;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .logo img {
+            max-width: 100px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .navbar ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 40px;
+        }
+        .container ul {
+            padding: 0;
+        }
+        .container li {
+            margin-bottom: 30px; /* Increased margin between rows */
+            display: flex;
+            align-items: center;
+        }
+        .container li label {
+            width: 120px; /* Fixed width for labels */
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 22px;
+        }
+        .container li span {
+            flex-grow: 1; /* Allow span to take remaining width */
+            padding-bottom: 3px; /* Spacing below each value */
+            display: block; /* Display as block to ensure full width */
+            font-size: 22px;
+        }
+        .container button {
+            padding: 10px 20px;
+            background-color: #5a84ae;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 22px;
+        }
+        .container button:hover {
+            background-color: #3e6790;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <a th:href="@{/}">
+            <img th:src="@{/images/logo-removebg-noslogan.png}" alt="Company Logo">
+        </a>
+    </div>
+    <ul>
+        <li>
+            <a th:href="@{/profile(uid=${user.uid})}">
+                <span th:text="${user.username}"></span>'s Profile
+            </a>
+        </li>
+        <li>
+            <form action="#" th:action="@{/logout}" method="POST">
+                <input type="submit" value="Logout">
+            </form>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+    <ul>
+        <li>
+            <label>UID</label>
+            <span th:text="${user.uid}"></span>
+        </li>
+        <hr>
+        <br>
+        <li>
+            <label>Name</label>
+            <span th:text="${user.username}"></span>
+        </li>
+        <hr>
+        <!-- Add more profile attributes here -->
+        <!-- Example: -->
+        <!-- <li>
+            <label>Email:</label>
+            <span th:text="${user.email}"></span>
+        </li> -->
+    </ul>
+    <!-- Navigate to editprofile with uid parameter -->
+    <a th:href="@{/editprofile(uid=${user.uid})}">
+        <button >Edit</button></a>
+</div>
+</body>
+</html>

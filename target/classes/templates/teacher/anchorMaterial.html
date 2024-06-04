@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/dashcss.css}">
+    <style>
+        /* Additional CSS for better attribute display */
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #c5e4ee;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #5a84ae;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .logo img {
+            max-width: 100px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .navbar ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+
+            margin: 40px;
+        }
+        .container ul {
+            padding: 0;
+        }
+        .container li {
+            margin-bottom: 30px; /* Increased margin between rows */
+            display: flex;
+            align-items: center;
+        }
+        .container li label {
+            width: 120px; /* Fixed width for labels */
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 22px;
+        }
+        .container li span {
+            flex-grow: 1; /* Allow span to take remaining width */
+            padding-bottom: 3px; /* Spacing below each value */
+            display: block; /* Display as block to ensure full width */
+            font-size: 22px;
+        }
+        .container button {
+            padding: 10px 20px;
+            background-color: #5a84ae;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 22px;
+        }
+        .container button:hover {
+            background-color: #3e6790;
+        }
+        .mini-container{
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0px;
+
+        }
+        .mini-container button {
+            padding: 10px 20px;
+            background-color: #5a84ae;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .mini-container button:hover {
+            background-color: #3e6790;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <a th:href="@{/}">
+            <img th:src="@{/images/logo-removebg-noslogan.png}" alt="Company Logo">
+        </a>
+    </div>
+    <ul>
+        <li>
+            <a th:href="@{/profile(uid=${teacher.uid})}">
+                <span th:text="${teacher.username}"></span>'s Profile
+            </a>
+        </li>
+        <li>
+            <form action="#" th:action="@{/logout}" method="POST">
+                <input type="submit" value="Logout">
+            </form>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+    <h1 th:text="${subject.name}"></h1>
+    <ul>
+
+
+        <li>
+            <div  class="mini-container">
+                <h1>Add Material</h1>
+                <form th:action="@{/material/addMaterial}" th:object="${material}" enctype="multipart/form-data" method="POST">
+                    <input type="hidden" name="subject_id" th:value="${subject.id}">
+                    <label for="Chapter Number">Chapter Number</label>
+                    <input type="number" id="Chapter Number" name="Chapter Number" th:field="${material.chapter}">
+                    <br>
+                    <label for="pdfFile">Upload a PDF file:</label><br>
+                    <input type="file" id="pdfFile" name="pdfFile" accept=".pdf"><br><br>
+                    <!-- Add more editable fields here -->
+                    <!-- Example: -->
+                    <!-- <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" th:value="${user.email}"> -->
+                    <button type="submit">Add Material</button>
+                </form>
+            </div>
+        </li>
+<!--        <li>-->
+<!--            <div th:if="${not #lists.isEmpty(materials)}" class="mini-container">-->
+<!--                <h1>Show Chapter</h1>-->
+<!--                <form th:action="@{/teacher/displayMaterial}" method="GET">-->
+<!--                    <select>-->
+
+<!--                        <option th:each="material : ${materials}"-->
+<!--                                th:value="${material.id}"-->
+<!--                                th:text="${material.chapter}"></option>-->
+<!--                    </select>-->
+<!--                    <button type="submit" class="mini-container button">Show</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </li>-->
+        <!-- Add more profile attributes here -->
+        <!-- Example: -->
+        <!-- <li>
+            <label>Email:</label>
+            <span th:text="${user.email}"></span>
+        </li> -->
+    </ul>
+
+</div>
+</body>
+</html>

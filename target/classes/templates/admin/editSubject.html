@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Subject</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/dashcss.css}">
+    <style>
+        /* Additional CSS for better attribute display */
+        body {
+            font-family: Roboto, Arial, sans-serif;
+            background-color: #c5e4ee;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #5a84ae;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .logo img {
+            max-width: 100px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .navbar ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 40px;
+        }
+        .container form {
+            margin-bottom: 20px;
+        }
+        .container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .container input[type="text"],
+        .container input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .container button {
+            padding: 10px 20px;
+            background-color: #5a84ae;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #3e6790;
+        }
+        .container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .container li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 22px;
+
+        }
+        .container li label {
+            font-weight: bold;
+            margin: 10px;
+        }
+        .container li span {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <a th:href="@{/}">
+            <img th:src="@{/images/logo-removebg-noslogan.png}" alt="Company Logo">
+        </a>
+    </div>
+    <ul>
+        <li>
+            <a th:href="@{/profile(uid=${admin.uid})}">
+                <span th:text="${admin.username}"></span>'s Profile
+            </a>
+        </li>
+        <li>
+            <form action="#" th:action="@{/logout}" method="POST">
+                <input type="submit" value="Logout">
+            </form>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+    <ul>
+        <li>
+            <label>Subject ID:</label>
+            <span th:text="${subject.id}"></span>
+        </li>
+    </ul>
+    <form action="#" th:action="@{/admin/updateSubject}" th:object="${subject}" method="POST">
+        <input type="hidden" th:field="*{id}" />
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="Name" th:value="*{name}" th:field="*{name}">
+        <label for="credits">Credits</label>
+        <input type="number" id="credits" name="credits" th:value="*{credits}" th:field="*{credits}">
+        <label for="sem">Semester</label>
+        <input type="number" id="sem" name="sem" th:value="*{sem}" th:field="*{sem}">
+        <label for="anchorId">Anchor ID</label>
+        <input type="text" id="anchorId" name="anchorId" th:value="*{anchorId}" th:field="*{anchorId}">
+        <!-- Add more editable fields here -->
+        <!-- Example: -->
+        <!-- <label for="email">Email:</label>
+        <input type="text" id="email" name="email" th:value="${user.email}"> -->
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+</body>
+</html>
